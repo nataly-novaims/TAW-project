@@ -166,6 +166,15 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
 }
+.event-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.2s;
+}
+.event-card-link:hover {
+    transform: translateY(-5px);
+}
 
 
 .register-container {
