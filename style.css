@@ -99,6 +99,7 @@ footer {
 }
 .event-card h4 {
     margin: 10px 0;
+    text-transform: uppercase;
 }
 .right-side h3 {
     text-align: center;
@@ -174,6 +175,12 @@ footer {
 }
 .event-card-link:hover {
     transform: translateY(-5px);
+}
+.category-tag {
+    font-size: 0.7rem;
+}
+.event-description {
+    text-align: justify;
 }
 
 
@@ -288,4 +295,74 @@ footer {
     .left-side h1, .left-side p {
         text-align: center;
     }
+}
+
+
+
+
+/*style for event-details page*/
+
+/* Контейнер, чтобы всё было по центру как на главной */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: block;
+}
+
+/* Настройка карточки в режиме "деталей" */
+.event-card-details {
+    cursor: default; /* Тут кликать уже не надо */
+    padding: 40px;
+    transform: none !important; /* Убираем наклон при наведении, если он был */
+    background: rgba(255, 255, 255, 0.1); /* Прозрачный белый фон */
+    backdrop-filter: blur(15px);          /* Размытие заднего плана */
+    -webkit-backdrop-filter: blur(15px);  /* Поддержка для Safari (на iPhone) */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Тонкая светлая граница */
+    border-radius: 20px;
+    color: white;
+    
+}
+
+
+
+/* Растягиваем текст описания */
+.full-description {
+    margin: 30px 0;
+    line-height: 1.8;      /* Делаем текст читабельным */
+    font-size: 1.1rem;
+    text-align: justify;   /* Растягиваем по ширине */
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Стиль ссылки "Назад" */
+.back-link {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 20px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    opacity: 1;
+}
+
+/* Кнопка регистрации в твоем стиле */
+.register-event-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: auto;
+    display: block;
+}
+.register-event-btn:hover {
+    background: #e0e0e0;
+    transform: scale(1.05);
 }

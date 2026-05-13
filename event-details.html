@@ -18,12 +18,28 @@
             </div>
         </nav>
     </header>
-    <main>
-        <a href="events.html">Back to Events list</a>
-        <section class="event-card">
-            <h1></h1>
-        </section>
+    <main class="container">
+        <a href="events.html" class="back-link">Back to Events list</a>
+        <article class="event-card-details">
+            <h1 id="event-title">Loading...</h1>
+            <div class="meta-data">
+                <p id="event-date"></p>
+                <p id="event-location"></p>
+            </div>
+            <div class="full-description" id="event-description">
+            </div>
+            <div class="event-organizer" id="event-organizer">
+            </div>
+            <div class="event-participants" id="event-participants">
+            </div>
+            <div class="details-footer">
+                <span id="event-category" class="category-tag"></span>
+                <button class="register-event-btn">Register for Event</button>
+            </div>
+        </article>
     </main>
     
+    <script src="data.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
