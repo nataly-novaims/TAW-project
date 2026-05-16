@@ -173,6 +173,16 @@ footer {
     margin: 0.6em 0;
 }
 
+.index-main-container {
+    flex: 1;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 10px 20px;
+}
+
 
 /* STYLES FOR THE EVENTS PAGE */
 
@@ -495,4 +505,32 @@ footer {
     .events-page-container {
         padding: 40px 20px;
     }
+    /* center the main content on mobile */
+    .index-main-container {
+        padding: 40px 20px;
+        display: flex !important;
+        flex-direction: column;
+            gap: 20px;
+            align-items: center;
+    }
+    /* center the navigation links on mobile */
+    .navbar {
+        gap: 10px;
+        display: flex !important;
+    }
+    /* center the auth buttons on mobile */
+    .auth-buttons {
+        gap: 10px;
+        text-align: center;
+    }
+    /* center the logo on mobile */
+    .see-all-container {
+        text-align: center;
+    }
+    /* center the logo on mobile */
+    .logo {
+        text-align: center;
+        padding-bottom: 0.4rem;
+    }
+    
 }
