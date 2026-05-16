@@ -442,6 +442,10 @@ footer {
 /* Responsive styles for mobile devices */
 @media screen and (max-width: 768px) {
 
+    body {
+        width: 100% !important;
+        overflow-x: hidden;
+    }
     /* grid of events in one column */
     .events-grid {
         display: grid;
@@ -509,9 +513,11 @@ footer {
     .index-main-container {
         padding: 40px 20px;
         display: flex !important;
-        flex-direction: column;
-            gap: 20px;
-            align-items: center;
+        display: block !important;
+        gap: 20px;
+        align-items: center;
+        flex-direction: column !important;
+
     }
     /* center the navigation links on mobile */
     .navbar {
@@ -532,5 +538,19 @@ footer {
         text-align: center;
         padding-bottom: 0.4rem;
     }
-    
+    .main {
+        padding: 0 20px;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px;
+        width: 100% !important;
+        max-width: 100% !important;
+
+    }
+    .container {
+        padding: 0 20px;
+        display: flex !important;
+        flex-direction: column;
+        gap: 20px;
+    }
 }
