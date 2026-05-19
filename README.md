@@ -7,7 +7,6 @@ A simple web application where students can browse and register for events in Li
 - **Frontend:** HTML, CSS,  JavaScript
 - **Backend:** Node.js + Express
 - **Storage:** JSON file (`users.json`) simple and inspectable
-- **Password hashing:** bcryptjs
 - **Sessions:** JSON Web Tokens (JWT)
 
 ## Project Structure
