@@ -1,9 +1,9 @@
 // ============================================================
 // database.js
 // ------------------------------------------------------------
-// A tiny file-based "database". Instead of using a heavy database
+// A tiny file based "database". Instead of using a heavy database
 // engine, we save our users to a single JSON file (users.json).
-// This keeps the project simple, zero-config, and easy to inspect:
+// This keeps the project simple, zero config, and easy to inspect:
 // you can literally open users.json in any text editor.
 //
 // In production you would replace this with a real database
