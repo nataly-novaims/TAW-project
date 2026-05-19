@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">Events</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="registration.html">Register</a>
+                <a href="login.html">Login</a>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <a href="events.html" class="back-link">Back to Events list</a>
+        <article class="event-card-details">
+            <h1 id="event-title">Loading...</h1>
+            <div class="meta-data">
+                <p id="event-date"></p>
+                <p id="event-location"></p>
+            </div>
+            <div class="full-description" id="event-description">
+            </div>
+            <div class="event-organizer" id="event-organizer">
+            </div>
+            <div class="event-participants" id="event-participants">
+            </div>
+            <div class="details-footer">
+                <span id="event-category" class="category-tag"></span>
+                <button class="register-event-btn">Register for Event</button>
+            </div>
+        </article>
+    </main>
+    
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+
+    <!-- auth.js updates the navbar to show the logged-in user's name -->
+    <script src="auth.js"></script>
+</body>
+</html>

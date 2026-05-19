@@ -1,0 +1,19 @@
+# Node dependencies — never commit, they can be reinstalled with `npm install`
+node_modules/
+
+# Environment variables — contains secrets
+.env
+
+# Users database — local data, not source code
+users.json
+
+# macOS junk files
+.DS_Store
+
+# Editor folders
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*

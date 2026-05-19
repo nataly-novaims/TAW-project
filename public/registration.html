@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Events for students</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">Events</a>
+            </div>
+            <!-- These links are rewritten by auth.js depending on login state -->
+            <div class="auth-buttons">
+                <a href="registration.html">Register</a>
+                <a href="login.html">Login</a>
+            </div>
+        </nav>
+    </header>
+    <main class="register-container">
+        <div class="glass-form">
+            <h2>Join the community</h2>
+            <!-- id="signup-form" lets auth.js find this form and handle its submit event -->
+            <form id="signup-form">
+                <input type="text"     id="username" placeholder="Username" class="glass-input" required>
+                <input type="email"    id="email"    placeholder="Email"    class="glass-input" required>
+                <input type="password" id="password" placeholder="Password" class="glass-input" required>
+                <button type="submit" class="register-button">Create account</button>
+            </form>
+            <!-- Error / success messages are written here by auth.js -->
+            <p id="form-message" style="min-height: 1.2em; margin-top: 12px;"></p>
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </main>
+    <footer>
+        <p> 2026 TAW project</p>
+    </footer>
+
+    <!-- auth.js handles the form submission, calls the API, and updates the navbar -->
+    <script src="auth.js"></script>
+</body>
+</html>

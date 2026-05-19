@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Events for students</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">Events</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="registration.html">Register</a>
+                <a href="login.html">Login</a>
+            </div>
+        </nav>
+    </header>
+    <main class="events-page-container">
+        <h1 class="events-page-title">All events</h1>
+        <div class="filter-section">
+            <input type="text" id="search-input" class="glass-input" placeholder="Search the event...">
+            <select id="category-select" class="glass-select">
+                <option value="all">All categories</option>
+                <option value="Workshops">Workshops</option>
+                <option value="Sports">Sports</option>
+                <option value="Cultural">Cultural</option>
+                <option value="Talks">Talks</option>
+            </select>
+        </div>
+
+        <div class="events-grid" id="all-events-grid"></div>
+        <script src="data.js"></script>
+        <script src="app.js"></script>
+            
+            
+    </main>
+    <footer>
+        <p> 2026 TAW project</p>
+    </footer>
+
+    <!-- auth.js updates the navbar to show the logged-in user's name -->
+    <script src="auth.js"></script>
+</body>
+</html>
