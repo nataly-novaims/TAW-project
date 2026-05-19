@@ -1,6 +1,6 @@
-// ============================================================
+// 
 // routes/auth.js
-// ------------------------------------------------------------
+// 
 // This file contains the three authentication API endpoints:
 //   POST /api/auth/signup  -> create a new account
 //   POST /api/auth/login   -> log in to an existing account
@@ -9,7 +9,7 @@
 // Libraries used:
 //   * bcryptjs       -> hash passwords before saving them
 //   * jsonwebtoken   -> create JWT session tokens
-// ============================================================
+// 
 
 const express = require('express');
 const bcrypt = require('bcryptjs');
@@ -24,7 +24,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'dev-secret-change-me';
 const JWT_EXPIRES_IN = '7d'; // each login lasts 7 days
 
 
-// --- Small validator ----------------------------------------
+//  Small validator 
 
 // Returns true if the string looks like a valid email address.
 function isValidEmail(email) {
@@ -32,10 +32,10 @@ function isValidEmail(email) {
 }
 
 
-// ============================================================
+// 
 // POST /api/auth/signup
 // Body: { username, email, password }
-// ============================================================
+// 
 router.post('/signup', async (req, res) => {
     try {
         const { username, email, password } = req.body;
@@ -95,10 +95,10 @@ router.post('/signup', async (req, res) => {
 });
 
 
-// ============================================================
+// 
 // POST /api/auth/login
 // Body: { username, password }   (username can also be the email)
-// ============================================================
+// 
 router.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -150,11 +150,11 @@ router.post('/login', async (req, res) => {
 });
 
 
-// ============================================================
+// 
 // GET /api/auth/me
 // Returns the user described by the JWT in the Authorization header.
 // Useful for checking "am I still logged in?" from the frontend.
-// ============================================================
+// 
 router.get('/me', (req, res) => {
     // The frontend sends:  Authorization: Bearer <token>
     const authHeader = req.headers.authorization;
