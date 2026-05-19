@@ -4,7 +4,7 @@ A simple web application where students can browse and register for events in Li
 
 ## Tech Stack
 
-- **Frontend:** HTML, CSS, vanilla JavaScript
+- **Frontend:** HTML, CSS,  JavaScript
 - **Backend:** Node.js + Express
 - **Storage:** JSON file (`users.json`) simple and inspectable
 - **Password hashing:** bcryptjs
