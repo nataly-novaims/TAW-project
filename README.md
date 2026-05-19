@@ -29,8 +29,6 @@ events-project/
 ├── server.js                # Express server entry point
 ├── database.js              # Tiny JSON-file storage layer
 ├── package.json             # Dependencies & scripts
-├── .env                     # Environment variables (NOT committed)
-├── .gitignore
 ├── users.json               # Auto-created on first run (NOT committed)
 └── README.md
 ```
