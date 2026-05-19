@@ -1,4 +1,4 @@
-// simple json file as database (so we don't need to install sqlite/mongo)
+// simple json file as database 
 const fs = require('fs');
 const path = require('path');
 
