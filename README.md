@@ -77,7 +77,5 @@ All responses are JSON.
 3. Click **Register**, fill the form (username ≥ 3 chars, valid email, password ≥ 6 chars), submit.
 4. You should be redirected to the home page. The navbar should now show "Hello, your-username" and a Logout link.
 5. Click Logout, then click Login, and log in with the same credentials.
-6. Try error cases: short password, invalid email, duplicate username, wrong password.
-7. Open `users.json` in any text editor — you'll see your user with a hashed password (`$2a$10$...`), never plain text.
 
 
