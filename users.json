@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "uzi",
+      "email": "usairzakir@gmail.com",
+      "password": "$2a$10$0znDxqGZBdnWA1FXS6Z6FuhAFWjI4QaUZaw2BkBT.iDP1e67FHfS6"
+    }
+  ],
+  "nextId": 2
+}

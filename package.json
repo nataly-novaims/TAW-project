@@ -1,0 +1,19 @@
+{
+  "name": "events-for-students",
+  "version": "1.0.0",
+  "description": "Student events website with authentication backend (TAW university project)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
