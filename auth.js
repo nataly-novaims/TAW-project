@@ -1,100 +1,105 @@
-const express = require('express');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const db = require('../database');
+// handles signup, login and the navbar
 
-const router = express.Router();
-const SECRET = process.env.JWT_SECRET || 'my-secret-key';
+function saveUser(token, user) {
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+}
 
-// signup
-router.post('/signup', async (req, res) => {
-    try {
-        const { username, email, password } = req.body;
+function getUser() {
+    const u = localStorage.getItem('user');
+    return u ? JSON.parse(u) : null;
+}
 
-        if (!username || !email || !password) {
-            return res.status(400).json({ error: 'Please fill all fields' });
-        }
-        if (username.length < 3) {
-            return res.status(400).json({ error: 'Username too short' });
-        }
-        if (!email.includes('@')) {
-            return res.status(400).json({ error: 'Invalid email' });
-        }
-        if (password.length < 6) {
-            return res.status(400).json({ error: 'Password too short (min 6 characters)' });
-        }
+function logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    window.location.href = 'index.html';
+}
 
-        // check if user already exists
-        if (db.findUser(username) || db.findUser(email)) {
-            return res.status(409).json({ error: 'User already exists' });
-        }
+// change the navbar if user is logged in
+function updateNavbar() {
+    const nav = document.querySelector('.auth-buttons');
+    if (!nav) return;
 
-        // hash the password so we don't save it as plain text
-        const hashed = await bcrypt.hash(password, 10);
-        const user = db.addUser(username, email, hashed);
-
-        // make a token for the user
-        const token = jwt.sign({ id: user.id, username: user.username }, SECRET, { expiresIn: '7d' });
-
-        res.status(201).json({
-            token: token,
-            user: { id: user.id, username: user.username, email: user.email }
+    const user = getUser();
+    if (user) {
+        nav.innerHTML = '<span style="color:white; opacity:0.7;">Hi, ' + user.username + '</span>'
+                      + '<a href="#" id="logout-link">Logout</a>';
+        document.getElementById('logout-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            logout();
         });
-
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({ error: 'Server error' });
+    } else {
+        nav.innerHTML = '<a href="registration.html">Register</a><a href="login.html">Login</a>';
     }
-});
+}
 
-// login
-router.post('/login', async (req, res) => {
-    try {
-        const { username, password } = req.body;
+function showMessage(text, isError) {
+    const el = document.getElementById('form-message');
+    if (!el) return;
+    el.textContent = text;
+    el.style.color = isError ? '#ff6b6b' : '#7CFC9F';
+}
 
-        if (!username || !password) {
-            return res.status(400).json({ error: 'Please fill all fields' });
+// signup form
+const signupForm = document.getElementById('signup-form');
+if (signupForm) {
+    signupForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+
+        try {
+            const res = await fetch('/api/auth/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, email, password })
+            });
+            const data = await res.json();
+
+            if (!res.ok) {
+                showMessage(data.error, true);
+                return;
+            }
+
+            saveUser(data.token, data.user);
+            showMessage('Account created!', false);
+            setTimeout(function() { window.location.href = 'index.html'; }, 700);
+        } catch (err) {
+            showMessage('Cannot connect to server', true);
         }
+    });
+}
 
-        const user = db.findUser(username);
-        if (!user) {
-            return res.status(401).json({ error: 'Wrong username or password' });
+// login form
+const loginForm = document.getElementById('login-form');
+if (loginForm) {
+    loginForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+
+        try {
+            const res = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            const data = await res.json();
+
+            if (!res.ok) {
+                showMessage(data.error, true);
+                return;
+            }
+
+            saveUser(data.token, data.user);
+            showMessage('Logged in!', false);
+            setTimeout(function() { window.location.href = 'index.html'; }, 700);
+        } catch (err) {
+            showMessage('Cannot connect to server', true);
         }
+    });
+}
 
-        const ok = await bcrypt.compare(password, user.password);
-        if (!ok) {
-            return res.status(401).json({ error: 'Wrong username or password' });
-        }
-
-        const token = jwt.sign({ id: user.id, username: user.username }, SECRET, { expiresIn: '7d' });
-
-        res.json({
-            token: token,
-            user: { id: user.id, username: user.username, email: user.email }
-        });
-
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({ error: 'Server error' });
-    }
-});
-
-// check who is logged in
-router.get('/me', (req, res) => {
-    const header = req.headers.authorization;
-    if (!header) {
-        return res.status(401).json({ error: 'No token' });
-    }
-
-    const token = header.split(' ')[1];
-    try {
-        const decoded = jwt.verify(token, SECRET);
-        const user = db.findById(decoded.id);
-        if (!user) return res.status(401).json({ error: 'User not found' });
-        res.json({ user: { id: user.id, username: user.username, email: user.email } });
-    } catch (err) {
-        res.status(401).json({ error: 'Invalid token' });
-    }
-});
-
-module.exports = router;
+document.addEventListener('DOMContentLoaded', updateNavbar);
