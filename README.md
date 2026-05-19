@@ -92,7 +92,7 @@ All responses are JSON.
 
 For a small university project demo, a JSON file:
 - Requires zero setup (no database server to install or configure)
-- Is easy to inspect — open in any text editor
+- Is easy to inspect  open in any text editor
 - Implements the same concepts as a real database (schema, persistence, CRUD, uniqueness checks)
 
-To upgrade to a real database later (e.g. PostgreSQL or MongoDB), you only need to rewrite `database.js` — the three exported functions stay the same, so nothing else in the project changes.
+To upgrade to a real database later (e.g. PostgreSQL or MongoDB), you only need to rewrite `database.js` the three exported functions stay the same, so nothing else in the project changes.
