@@ -1,6 +1,6 @@
-// ============================================================
+// 
 // database.js
-// ------------------------------------------------------------
+// 
 // A tiny file based "database". Instead of using a heavy database
 // engine, we save our users to a single JSON file (users.json).
 // This keeps the project simple, zero config, and easy to inspect:
@@ -11,7 +11,7 @@
 //   - Persist data to disk
 //   - Provide functions to read and write that data
 //   - Enforce uniqueness (no duplicate usernames / emails)
-// ============================================================
+// 
 
 const fs = require('fs');
 const path = require('path');
@@ -25,7 +25,7 @@ if (!fs.existsSync(DB_FILE)) {
     fs.writeFileSync(DB_FILE, JSON.stringify({ users: [], nextId: 1 }, null, 2));
 }
 
-// --- Internal helpers ---------------------------------------
+//  Internal helpers 
 
 // Read the whole database from disk and return it as a JS object.
 function readDB() {
@@ -39,7 +39,7 @@ function writeDB(data) {
 }
 
 
-// --- Public API used by routes/auth.js ----------------------
+//  Public API used by routes/auth.js 
 
 // Find a user by their username OR email (case-sensitive match).
 // Returns the user object, or undefined if not found.
