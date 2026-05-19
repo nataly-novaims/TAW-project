@@ -6,7 +6,7 @@ A simple web application where students can browse and register for events in Li
 
 - **Frontend:** HTML, CSS, vanilla JavaScript
 - **Backend:** Node.js + Express
-- **Storage:** JSON file (`users.json`) — simple and inspectable
+- **Storage:** JSON file (`users.json`) simple and inspectable
 - **Password hashing:** bcryptjs
 - **Sessions:** JSON Web Tokens (JWT)
 
@@ -75,7 +75,7 @@ All responses are JSON.
 1. Start the server: `npm start`
 2. Open `http://localhost:3000` in your browser.
 3. Click **Register**, fill the form (username ≥ 3 chars, valid email, password ≥ 6 chars), submit.
-4. You should be redirected to the home page. The navbar should now show "Hello, your-username" and a Logout link.
+4. You should be redirected to the home page. The navbar should now show "Hello, your username" and a Logout link.
 5. Click Logout, then click Login, and log in with the same credentials.
 
 
