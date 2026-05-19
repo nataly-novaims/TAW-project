@@ -80,19 +80,4 @@ All responses are JSON.
 6. Try error cases: short password, invalid email, duplicate username, wrong password.
 7. Open `users.json` in any text editor — you'll see your user with a hashed password (`$2a$10$...`), never plain text.
 
-## Security Notes
 
-- Passwords are hashed with **bcrypt** (cost factor 10) before being stored.
-- Sessions use **JWT** tokens signed with `JWT_SECRET` from `.env`.
-- The `.env` file is in `.gitignore` so secrets never leave your machine.
-- `users.json` is also in `.gitignore` so user data never leaves your machine.
-- Login errors use a generic "Invalid username or password" message so attackers can't tell whether a username exists.
-
-## Why a JSON File Instead of a Real Database?
-
-For a small university project demo, a JSON file:
-- Requires zero setup (no database server to install or configure)
-- Is easy to inspect  open in any text editor
-- Implements the same concepts as a real database (schema, persistence, CRUD, uniqueness checks)
-
-To upgrade to a real database later (e.g. PostgreSQL or MongoDB), you only need to rewrite `database.js` the three exported functions stay the same, so nothing else in the project changes.
