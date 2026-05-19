@@ -1,16 +1,16 @@
-// ============================================================
+// 
 // public/auth.js
-// ------------------------------------------------------------
+// 
 // Frontend logic for authentication. It runs in the browser
 // and is included on every page. It is responsible for:
 //   1. Submitting the signup form (registration.html)
 //   2. Submitting the login form (login.html)
 //   3. Storing the JWT token after a successful login
 //   4. Updating the navbar to show Login/Register OR the
-//      logged-in user's name and a Logout button
-// ============================================================
+//      logged in user's name and a Logout button
+// 
 
-// --- Helpers to read/write the auth state from localStorage ---
+// Helpers to read/write the auth state from localStorage 
 
 // Save the JWT token + user object so the user stays logged in
 // even after they close and reopen the tab.
@@ -60,7 +60,7 @@ function updateNavbar() {
 }
 
 
-// --- UI: display a message inside the form ------------------
+//  UI: display a message inside the form 
 
 function showMessage(text, isError = true) {
     const el = document.getElementById('form-message');
@@ -70,7 +70,7 @@ function showMessage(text, isError = true) {
 }
 
 
-// --- Form handlers ------------------------------------------
+//  Form handlers 
 
 // Attach a submit handler to the signup form (only present on registration.html).
 function handleSignupForm() {
@@ -148,7 +148,7 @@ function handleLoginForm() {
 }
 
 
-// --- Run everything once the page is ready ------------------
+//  Run everything once the page is ready 
 
 document.addEventListener('DOMContentLoaded', () => {
     updateNavbar();
