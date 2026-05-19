@@ -1,13 +1,13 @@
-// ============================================================
+// 
 // server.js
-// ------------------------------------------------------------
+// 
 // This is the entry point of the backend.
 // Running `npm start` runs this file, which:
 //   1. Loads environment variables from .env
 //   2. Starts an Express web server
 //   3. Serves all the frontend files in /public
 //   4. Exposes the authentication API under /api/auth/*
-// ============================================================
+// 
 
 // Load environment variables (PORT, JWT_SECRET) from the .env file.
 require('dotenv').config();
@@ -22,7 +22,7 @@ require('./database');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// ---- Middleware --------------------------------------------
+//  Middleware 
 
 // Allow Express to parse JSON request bodies (e.g. { "username": "..." }).
 app.use(express.json());
@@ -32,13 +32,13 @@ app.use(express.json());
 // all available at the root of the website.
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ---- Routes ------------------------------------------------
+//  Routes 
 
 // Mount the authentication routes under /api/auth.
 // So POST /api/auth/signup, POST /api/auth/login, GET /api/auth/me.
 app.use('/api/auth', authRoutes);
 
-// ---- Start the server --------------------------------------
+//  Start the server 
 
 app.listen(PORT, () => {
     console.log(`✅ Server is running at http://localhost:${PORT}`);
